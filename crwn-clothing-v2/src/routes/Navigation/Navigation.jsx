@@ -13,7 +13,7 @@ import{selectCurrentUser} from '../../store/user/userSelector'
 import { ReactComponent as CrwnLogo } from '../../assets/images/crown.svg';
 import {signOutUser } from '../../utils/firebase/firebase';
 
-import {NavigationContainer, NavLinks, NavLink, LogoContainer} from './NavigationStyle';
+import {NavigationContainer, NavLinks, NavLink, LogoContainer} from './navigationStyle';
 
 const Navigation = () =>{
     //const {currentUser, setCurrentUser} = useContext(UserContext);

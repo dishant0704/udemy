@@ -6,7 +6,7 @@ import {
     creatUserDocumentFromAuth } from './utils/firebase/firebase'
 
 import Home from "./routes/home/home";
-import Navigation from "./routes/navigation/Navigation";
+import Navigation from "./routes/Navigation/Navigation";
 import Authentication from "./routes/authentication/authentication";
 import Shop from "./routes/shop/Shop";
 import Checkout from "./routes/checkout/checkout";
