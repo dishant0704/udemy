@@ -36,7 +36,7 @@ googleProvider.setCustomParameters({
 });
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const signInwithGooglePopup = () => signInWithPopup(auth, googleProvider)
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 export const signInwithGoogleRedirect = () => signInWithRedirect(auth, googleProvider)
 
 export const db = getFirestore();
@@ -46,7 +46,7 @@ export const db = getFirestore();
 //     return Firestore.instance.collection('users').document(userId);
 //   }
 
-export const creatUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     
     if(!userAuth) return;
     const user = userAuth.user
