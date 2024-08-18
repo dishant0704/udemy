@@ -1,6 +1,16 @@
 import './search-box.styles.css'
+import {ChangeEvent } from 'react'
 
-const searchBox = (props) =>{
+interface ISearchBoxProps extends IChnageHandlerProps{
+  cssClass: string
+  placeholder?: string  
+}
+
+interface IChnageHandlerProps{ 
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const searchBox = (props:ISearchBoxProps) =>{
  const {cssClass, onChange, placeholder} = props
     return (
       <div>
