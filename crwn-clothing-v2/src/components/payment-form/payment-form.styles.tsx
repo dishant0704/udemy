@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import Button from '../button/button.component';
+import { ReactNode } from 'react';
 
 export const PaymentFormContainer = styled.div`
   height: 300px;
@@ -10,7 +11,12 @@ export const PaymentFormContainer = styled.div`
   justify-content: center;
 `;
 
-export const FormContainer = styled.form`
+interface CartIconContainerProps {
+  onSubmit: () => void;
+  children: ReactNode
+}
+
+export const FormContainer = styled.form<CartIconContainerProps>`
   height: 100px;
   min-width: 500px;
 `;

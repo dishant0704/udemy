@@ -1,3 +1,5 @@
+import { type } from 'os';
+import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
 const subColor = 'grey';
@@ -9,7 +11,12 @@ const shrinkLabelStyles = css`
   color: ${mainColor};
 `;
 
-export const FormInputLabel = styled.label`
+export type FormInputLabelProps = {
+  shrink?: boolean;
+  children?:ReactNode
+}
+
+export const FormInputLabel = styled.label<FormInputLabelProps>`
   color: ${subColor};
   font-size: 16px;
   font-weight: normal;
