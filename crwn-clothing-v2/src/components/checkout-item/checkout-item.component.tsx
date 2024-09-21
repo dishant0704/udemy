@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -53,4 +53,4 @@ const CheckoutItem:FC<CheckoutItemProps> = ({ cartItem }) => {
   );
 };
 
-export default CheckoutItem;
+export default memo(CheckoutItem);
