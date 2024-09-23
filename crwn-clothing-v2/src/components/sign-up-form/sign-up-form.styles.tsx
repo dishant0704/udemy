@@ -8,4 +8,9 @@ export const SignUpContainer = styled.div`
   h2 {
     margin: 10px 0;
   }
+  
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
