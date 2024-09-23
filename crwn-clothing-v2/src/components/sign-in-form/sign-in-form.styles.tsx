@@ -8,9 +8,18 @@ export const SignInContainer = styled.div`
   h2 {
     margin: 10px 0;
   }
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  @media only screen and (max-width: 800px) {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 `;
