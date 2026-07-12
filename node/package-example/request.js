@@ -1,6 +1,6 @@
 const axsios = require('axios');
 
-axsios.get('https://jsonplaceholder.typicode.com/users')
+axsios.get('https://jsonplaceholder.typicode.com/users/1')
 .then((response) => {
     console.log(response.data); 
 })
