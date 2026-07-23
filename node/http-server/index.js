@@ -2,16 +2,27 @@ const http = require('http');
 const PORT = 3000;
 
 const server = http.createServer();
+const friends = [
+    {id : 1, name: 'Alice'},
+    {id : 2, name: 'Bob'},
+    {id : 3, name: 'Charlie'}
+]
 server.on('request', (req, res) => {
     console.log(`Received request: ${req.method} ${req.url}`);
-    if (req.url === '/hello'){
+    const urlItems = req.url.split('/');
+    if (urlItems[1] === 'hello'){
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         res.end('Hello World\n');
-    }else if (req.url === '/friend'){
+    }else if (urlItems[1] === 'friends'){
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.end('{"name": "John", "age": 30}');
+        if(urlItems.length === 3){
+            const friendId = Number(urlItems[2]);
+            res.end(JSON.stringify(friends[friendId]));
+        }else{
+            res.end(JSON.stringify(friends));
+        }
     }else{
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain');
