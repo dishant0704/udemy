@@ -19,6 +19,7 @@ server.on("request", (req, res) => {
       console.log("New friend data received:", newFriend);
       friends.push(JSON.parse(newFriend));
     });
+    req.pipe(res);
   } else if (req.method === "GET" && urlItems[1] === "friends") {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
@@ -38,3 +39,10 @@ server.on("request", (req, res) => {
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+// fetch("http://localhost:3000/friends", {
+//   method: "POST",
+//   body: JSON.stringify({ id: 5, name: "Ketan" }),})
+//   .then((response) => response.json())
+//   .then((data) => console.log("Response from server:", data))
+//   .catch((error) => console.error("Error:", error));
