@@ -9,10 +9,21 @@ app.get('/', (req, res) => {
 });
 
 const users = [
-  { id: 1, name: 'Ketan' },
-  { id: 2, name: 'John' },
-  { id: 3, name: 'Jane' },
+  { id: 1, name: "Ketan" },
+  { id: 2, name: "John" },
+  { id: 3, name: "Jane" },
+  { id: 4, name: "Alice" },
+  { id: 5, name: "Bob" }
 ];
+
+app.use(function(req, res, next) {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    console.log(`${req.method} ${req.originalUrl} ${res.statusCode} - ${duration}ms`);
+  });
+  next();
+});
 
 app.get('/message', (req, res) => {
   res.send('Hi ketan!');
@@ -29,10 +40,6 @@ app.get('/users/:id', (req, res) => {
   }else { 
     return res.json(users.find(user => user.id === userId) || { error: 'User not found' });
   }
-});
-
-app.post('/message', (req, res) => {
-    res.send('message updated!');
 });
 
 app.listen(port, (req, res) => {
