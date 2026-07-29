@@ -25,6 +25,20 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.json());
+
+app.post('/users', (req, res) => {
+  if (!req.body.name) {
+    return res.status(400).json({ error: 'Name is required hi' })
+  }
+  const newUser = { 
+    name: req.body.name,
+    id: users.length + 1};
+
+  users.push(newUser);
+  res.status(201).json(newUser);  
+})
+
 app.get('/message', (req, res) => {
   res.send('Hi ketan!');
 });
