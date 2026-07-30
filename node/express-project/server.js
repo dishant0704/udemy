@@ -1,4 +1,6 @@
 const express = require('express');
+const {getMessage, sendMessage} = require('./controllers/message.controller');
+
 const app = express();
 const port = 3000;
 
@@ -27,6 +29,9 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 
+app.get('/message', getMessage);
+app.post('/message', sendMessage);
+
 app.post('/users', (req, res) => {
   if (!req.body.name) {
     return res.status(400).json({ error: 'Name is required hi' })
@@ -38,10 +43,6 @@ app.post('/users', (req, res) => {
   users.push(newUser);
   res.status(201).json(newUser);  
 })
-
-app.get('/message', (req, res) => {
-  res.send('Hi ketan!');
-});
 
 app.get('/users', (req, res) => {
   res.json(users);
