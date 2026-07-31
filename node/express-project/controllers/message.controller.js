@@ -1,4 +1,4 @@
-
+const path = require('path');
 
 function sendMessage(req, res) {
   const message = req.body.message;
@@ -9,7 +9,9 @@ function sendMessage(req, res) {
 }
 
 function getMessage(req, res) {
-  res.status(200).json({ message: 'Hi ketan!' });
+  path.join(__dirname,'..','public','01.jpg') //specify dir name, path or folder location, folder name, file name
+  res.sendFile(path.join(__dirname,'..','public','01.jpg'));
+  // res.status(200).json({ message: 'Hi ketan!' });
 }
 
 module.exports = {

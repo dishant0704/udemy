@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path')
 
 const messageRouter = require('./routers/messages.routes')
 const userRouter = require('./routers/users.router')
@@ -22,8 +23,9 @@ app.use(function(req, res, next) {
   });
   next();
 });
-
+app.use('/site', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+
 
 // now use rout by using 'use' method:
 // messages
