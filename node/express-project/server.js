@@ -1,6 +1,7 @@
 const express = require('express');
-const {getMessage, sendMessage} = require('./controllers/message.controller');
-const {getUsers, getUser, postUser} = require('./controllers/user.controller');
+
+const messageRouter = require('./routers/messages.routes')
+const userRouter = require('./routers/users.router')
 
 const app = express();
 const port = 3000;
@@ -24,14 +25,13 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 
-//Message End Point 
-app.get('/message', getMessage);
-app.post('/message', sendMessage);
+// now use rout by using 'use' method:
+// messages
+app.use('/message', messageRouter)
 
-//user End Point 
-app.post('/user', postUser)
-app.get('/users', getUsers);
-app.get('/user/:id', getUser);
+// users
+app.use('/user', userRouter);
+app.use('/users', userRouter);
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on port ${port}`);
