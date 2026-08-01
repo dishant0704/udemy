@@ -10,7 +10,8 @@ function sendMessage(req, res) {
 
 function getMessage(req, res) {
   path.join(__dirname,'..','public','01.jpg') //specify dir name, path or folder location, folder name, file name
-  res.sendFile(path.join(__dirname,'..','public','01.jpg'));
+  res.render('messages', { title: 'Message Page', myCaption: 'This is the message page' });
+  // res.sendFile(path.join(__dirname,'..','public','01.jpg'));
   // res.status(200).json({ message: 'Hi ketan!' });
 }
 
