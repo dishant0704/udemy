@@ -1,5 +1,6 @@
 
-const getAllLaunches = new Map();
+const Launches = new Map();
+let letestFlightNumber = 100;
 
 const launch = {
     flightNumber: 100,
@@ -12,7 +13,33 @@ const launch = {
     success: true,
 }
 
-getAllLaunches.set(launch.flightNumber, launch);
+Launches.set(launch.flightNumber, launch);
+
+function existlaunchWithId(launchId) {
+    return Launches.has(launchId);
+}
+
+function addNewLaunch(launch) {
+    letestFlightNumber++;
+    Launches.set(letestFlightNumber, Object.assign(launch,{
+        flightNumber: letestFlightNumber,
+        costumers: ['ZTM', 'NASA'],
+        upcoming: true,
+        success: true,
+    }));
+}
+
+function abortLaunchById(id) {
+    console.log("Aborting launch with ID:", id);
+    const aborted = Launches.get(id);
+    aborted.upcoming = false;
+    aborted.success = false;
+    return aborted;
+}
+    
 module.exports = {
-    getAllLaunches,
+    existlaunchWithId,
+    Launches,
+    addNewLaunch,
+    abortLaunchById
 }
