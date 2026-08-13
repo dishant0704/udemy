@@ -31,11 +31,11 @@ async function httpSubmitLaunch(launch) {
       ok: true,
       data: data
     };
-  }catch (err) {
-     console.error("POST /launches failed:", err);
+  }catch (error) {
+     console.error("POST /launches failed:", error);
     return{
       ok: false,
-      message: err.message,
+      message: error.message,
     }
   }
 }
@@ -43,7 +43,7 @@ async function httpSubmitLaunch(launch) {
 // Delete launch with given ID.
 async function httpAbortLaunch(id) {
   try{
-    const response = await fetch(`${API_URL}/:id`, {
+    const response = await fetch(`${API_URL}/launches/${id}`, {
       method: 'DELETE',
     });
     return await response.json();
