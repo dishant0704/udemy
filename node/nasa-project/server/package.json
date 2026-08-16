@@ -4,9 +4,10 @@
   "description": "NASA Mission Control Project API",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "set PORT=5000&& node src/server.js",
-    "watch": "nodemon src/server.js"
+    "watch": "nodemon src/server.js",
+    "watch-test": "nodemon --exec 'jest --watch'"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,8 @@
     "cors": "^2.8.6",
     "csv-parse": "^7.0.2",
     "express": "^4.21.2",
-    "morgan": "^1.11.0"
+    "jest": "^30.4.2",
+    "morgan": "^1.11.0",
+    "supertest": "^7.2.2"
   }
 }
