@@ -1,5 +1,6 @@
 const express = require('express');
 const cluster = require('cluster');
+const os = require('os');
 const app = express();
 
 function delay(md){
@@ -22,8 +23,11 @@ app.get('/timer', (req, res) => {
 console.log(`Running server...`);
 if(cluster.isMaster){
     console.log(`Master ${process.pid} is running`);
-    cluster.fork();
-    cluster.fork();
+    const numCPUs = os.cpus().length;
+    console.log(`Forking for ${numCPUs} CPUs`);
+    for(let i = 0; i < numCPUs; i++){
+        cluster.fork();
+    }
 }else{
     console.log(`Worker ${process.pid} started`);
     app.listen(3000, () => {
