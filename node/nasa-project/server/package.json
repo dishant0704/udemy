@@ -8,7 +8,7 @@
     "start": "set PORT=5000&& node src/server.js",
     "watch": "nodemon src/server.js",
     "watch-test": "nodemon --exec 'jest --watch'",
-    "cluster" : "pm2 start src/server.js -i max --name nasa-project-api"
+    "cluster": "pm2 start ecosystem.config.js"
   },
   "keywords": [],
   "author": "",
