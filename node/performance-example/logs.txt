@@ -1,0 +1,62 @@
+Running server...
+Running server...
+Running server...
+Running server...
+Master 9024 is running
+Worker 9024 started
+Master 6540 is running
+Worker 6540 started
+Master 7472 is running
+Worker 7472 started
+server is listening on port 3000
+server is listening on port 3000
+server is listening on port 3000
+Master 13428 is running
+Worker 13428 started
+server is listening on port 3000
+Running server...
+Master 7872 is running
+Worker 7872 started
+server is listening on port 3000
+Running server...
+Master 8204 is running
+Worker 8204 started
+Running server...
+server is listening on port 3000
+Master 14188 is running
+Worker 14188 started
+server is listening on port 3000
+Running server...
+Master 10300 is running
+Worker 10300 started
+server is listening on port 3000
+Running server...
+Master 10788 is running
+Worker 10788 started
+server is listening on port 3000
+/timer started on 10788
+/timer finished on 10788
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:655:11)
+    at ServerResponse.header (H:\ketan\git\udemy\node\performance-example\node_modules\express\lib\response.js:686:10)
+    at ServerResponse.send (H:\ketan\git\udemy\node\performance-example\node_modules\express\lib\response.js:163:12)
+    at H:\ketan\git\udemy\node\performance-example\server.js:21:7
+    at Layer.handleRequest (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\layer.js:152:17)
+    at next (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\route.js:117:3)
+    at handle (H:\ketan\git\udemy\node\performance-example\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\layer.js:152:17)
+    at H:\ketan\git\udemy\node\performance-example\node_modules\router\index.js:295:15
+/timer started on 10788
+/timer finished on 10788
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:655:11)
+    at ServerResponse.header (H:\ketan\git\udemy\node\performance-example\node_modules\express\lib\response.js:686:10)
+    at ServerResponse.contentType (H:\ketan\git\udemy\node\performance-example\node_modules\express\lib\response.js:516:15)
+    at ServerResponse.send (H:\ketan\git\udemy\node\performance-example\node_modules\express\lib\response.js:138:14)
+    at H:\ketan\git\udemy\node\performance-example\server.js:21:7
+    at Layer.handleRequest (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\layer.js:152:17)
+    at next (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\route.js:117:3)
+    at handle (H:\ketan\git\udemy\node\performance-example\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (H:\ketan\git\udemy\node\performance-example\node_modules\router\lib\layer.js:152:17)

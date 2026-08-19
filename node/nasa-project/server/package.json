@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "set PORT=5000&& node src/server.js",
     "watch": "nodemon src/server.js",
-    "watch-test": "nodemon --exec 'jest --watch'"
+    "watch-test": "nodemon --exec 'jest --watch'",
+    "cluster" : "pm2 start src/server.js -i max --name nasa-project-api"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "express": "^4.21.2",
     "jest": "^30.4.2",
     "morgan": "^1.11.0",
+    "pm2": "^7.0.3",
     "supertest": "^7.2.2"
   }
 }
