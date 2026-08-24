@@ -26,7 +26,6 @@ function loadPlanetsData() {
       )
       .on("data", async (data) => {
         if (isHabitablePlanet(data)) {
-          console.log("Planet CSV data:", data);
           await savePlanets(data);
         }
       })
@@ -62,10 +61,10 @@ async function savePlanets(planet) {
   try {
     await Planets.updateOne(
       {
-        keplerName: planet.keplerName,
+        keplerName: planet.kepler_name,
       },
       {
-        keplerName: planet.keplerName,
+        keplerName: planet.kepler_name,
       },
       {
         upsert: true,
