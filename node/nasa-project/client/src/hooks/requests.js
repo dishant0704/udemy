@@ -46,6 +46,24 @@ async function httpAbortLaunch(id) {
     const response = await fetch(`${API_URL}/launches/${id}`, {
       method: 'DELETE',
     });
+    
+    // if (!response.ok) {
+    //   throw new Error(`DELETE failed: ${response.status}`);
+    // }
+
+    // const data = await response.text();
+
+    // if (!text) {
+    //   return {
+    //     ok: true,
+    //   };
+    // }
+
+    // return {
+    //   ok: true,
+    //   data: JSON.parse(text),
+    // }
+    
     return await response.json();
   }catch (err){
     console.error("DELETE /launches failed:", err);

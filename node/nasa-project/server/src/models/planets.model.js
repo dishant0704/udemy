@@ -16,13 +16,13 @@ function isHabitablePlanet(planet) {
 function loadPlanetsData() {
   return new Promise((resolve, reject) => {
     fs.createReadStream(
-      path.join(__dirname, "..", "..", "data", "kepler_data.csv")
+      path.join(__dirname, "..", "..", "data", "kepler_data.csv"),
     )
       .pipe(
         parse({
           comment: "#",
           columns: true,
-        })
+        }),
       )
       .on("data", async (data) => {
         if (isHabitablePlanet(data)) {
@@ -41,7 +41,7 @@ function loadPlanetsData() {
           console.log("Total habitable planets:", planets.length);
           console.log(
             "Habitable planets:",
-            planets.map((planet) => planet.keplerName)
+            planets.map((planet) => planet.keplerName),
           );
 
           console.log("Done reading file");
@@ -55,7 +55,8 @@ function loadPlanetsData() {
 }
 
 async function getAllPlanets() {
-  return await Planets.find({});
+  const planets = await Planets.find({});
+  return planets;
 }
 
 async function savePlanets(planet) {
@@ -69,7 +70,7 @@ async function savePlanets(planet) {
       },
       {
         upsert: true,
-      }
+      },
     );
   } catch (error) {
     console.error(`Could not save planet: ${error}`);
