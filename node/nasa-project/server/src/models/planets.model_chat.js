@@ -37,11 +37,11 @@ function loadPlanetsData() {
         try {
           const planets = await getAllPlanets();
 
-          console.log("Total habitable planets:", planets.length);
-          console.log(
-            "Habitable planets:",
-            planets.map((planet) => planet.keplerName)
-          );
+          // console.log("Total habitable planets:", planets.length);
+          // console.log(
+          //   "Habitable planets:",
+          //   planets.map((planet) => planet.keplerName)
+          // );
 
           console.log("Done reading file");
 
