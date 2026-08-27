@@ -1,15 +1,45 @@
 const mongoose = require("mongoose");
 
 const launchesSchema = new mongoose.Schema({
-    flightNumber: { type:Number, require: true},
-    mission: { type:Number, String: true},
-    rocket: { type:Number, String: true},
-    launchDate: { type:Date, String: true},
-    target: { type:String, String: true},
-    customers: { type:[String], String: true},
-    upcoming: { type:Boolean, String: true},
-    success: { type:Boolean, String: true, default: true},
-})
+  flightNumber: {
+    type: Number,
+    required: true,
+  },
 
-//Connect launchesSchema with the "Loanches" Collection
-module.exports = mongoose.model('launch', launchesSchema)
+  mission: {
+    type: String,
+    required: true,
+  },
+
+  rocket: {
+    type: String,
+    required: true,
+  },
+
+  launchDate: {
+    type: Date,
+    required: true,
+  },
+
+  target: {
+    type: String,
+    required: true,
+  },
+
+  customers: {
+    type: [String],
+    required: true,
+  },
+
+  upcoming: {
+    type: Boolean,
+    required: true,
+  },
+
+  success: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+module.exports = mongoose.model("Launch", launchesSchema);

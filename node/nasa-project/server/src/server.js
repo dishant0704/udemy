@@ -24,6 +24,8 @@ async function startServer() {
 
     await loadPlanetsData();
 
+    // await saveLaunches(launch);
+
     server.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
