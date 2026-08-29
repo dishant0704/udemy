@@ -1,34 +1,41 @@
 const http = require("http");
-const mongoose = require("mongoose");
-
-const port = process.env.PORT || 8000;
 const app = require("./app");
 
 const connect = require("./mongoConfig/MongoDb");
 
-const { loadPlanetsData } = require("./models/planets.model");
+const {
+  launch,
+  saveLaunches,
+} = require("./models/launches.model");
+
+const {
+  loadPlanetsData,
+} = require("./models/planets.model");
+
+const port = process.env.PORT || 8000;
 
 const server = http.createServer(app);
 
-mongoose.connection.once("open", () => {
-  // console.log("MongoDB Connection is ready!");
-});
-
-mongoose.connection.on("error", (error) => {
-  console.error(`MongoDB Connection error: ${error}`);
-});
-
 async function startServer() {
   try {
+    // Connect MongoDB
     await connect();
 
+    console.log("MongoDB connection is ready!");
+
+    // Load planets
     await loadPlanetsData();
 
-    // await saveLaunches(launch);
+    // Save initial/sample launch
+    await saveLaunches(launch);
 
+    console.log("Initial launch saved successfully");
+
+    // Start API server
     server.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
+
   } catch (error) {
     console.error("Unable to start server:", error);
   }

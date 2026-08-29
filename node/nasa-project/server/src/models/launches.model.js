@@ -42,21 +42,18 @@ async function getAllLaunches() {
   ).lean();
 
   console.log("Launches found:", launches.length);
-  console.log("Launches:", launches);
 
   return launches;
 }
 
 async function addNewLaunch(launch) {
-  const latestFlightNumber =
-    await LaunchesDataBase.findOne()
-      .sort("-flightNumber")
-      .lean();
+  const latestLaunch = await LaunchesDataBase.findOne()
+    .sort("-flightNumber")
+    .lean();
 
-  const flightNumber =
-    latestFlightNumber
-      ? latestFlightNumber.flightNumber + 1
-      : 100;
+  const flightNumber = latestLaunch
+    ? latestLaunch.flightNumber + 1
+    : 100;
 
   const newLaunch = {
     ...launch,
@@ -71,9 +68,9 @@ async function addNewLaunch(launch) {
   return newLaunch;
 }
 
-async function existLaunchWithId(launchId) {
+async function existLaunchWithId(id) {
   const launch = await LaunchesDataBase.findOne({
-    flightNumber: launchId,
+    flightNumber: id,
   });
 
   return !!launch;

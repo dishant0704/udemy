@@ -8,8 +8,17 @@ const {
 } = require("../../models/launches.model");
 
 async function httpGetAllLaunches(req, res) {
-  const launches = await getAllLaunches();
-  return res.status(200).json(launches);
+  try {
+    const launches = await getAllLaunches();
+
+    return res.status(200).json(launches);
+  } catch (error) {
+    console.error("GET /launches failed:", error);
+
+    return res.status(500).json({
+      error: "Failed to get launches",
+    });
+  }
 }
 
 async function httpAddNewLaunch(req, res) {
