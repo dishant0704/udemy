@@ -43,4 +43,14 @@ async function connect() {
   return cached.conn;
 }
 
-module.exports = connect;
+async function disconnect() {
+  if (isConnected) {
+    await mongoose.disconnect();
+    isConnected = false;
+  }
+}
+
+module.exports = {
+  connect,
+  disconnect,
+};

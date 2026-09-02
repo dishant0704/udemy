@@ -3,7 +3,7 @@ const {
   Launches,
   getAllLaunches,
   addNewLaunch,
-  existlaunchWithId,
+  existLaunchWithId,
   abortLaunchById,
 } = require("../../models/launches.model");
 
@@ -41,13 +41,10 @@ async function httpAddNewLaunch(req, res) {
   return res.status(201).json(launch);
 }
 
-// async function existLaunch(launchId) {
-//   return getAllLaunches.has(launchId);
-// }
-
 async function httpAbortLaunch(req, res) {
   const launchId = Number(req.params.id);
-  if (!existlaunchWithId(launchId)) {
+  const existLaunch = await existLaunchWithId(launchId)
+  if (!existLaunch) {
     return res.status(404).json({ error: "Launch not found" });
   }
   const aborted = abortLaunchById(launchId);
