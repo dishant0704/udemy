@@ -1,7 +1,7 @@
 const http = require("http");
 const app = require("./app");
 
-const connect = require("./mongoConfig/MongoDb");
+const {connect} = require("./mongoConfig/MongoDb");
 
 const {
   launch,
