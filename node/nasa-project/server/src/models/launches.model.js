@@ -4,11 +4,11 @@ const NasaPlanet = require("./planets.mongo");
 const DEFAULT_LAUNCH_NUMBER = 100
 
 const launch = {
-  flightNumber: 100,
-  mission: "Kepler Exploration X",
-  rocket: "Explorer IS1",
-  launchDate: new Date("December 27, 2030"),
-  target: "Kepler-1652 b",
+  flightNumber: 100, //id or index
+  mission: "Kepler Exploration X", //mission_name
+  rocket: "Explorer IS1", //rocket_name
+  launchDate: new Date("December 27, 2030"), //net
+  target: "Kepler-1652 b", //mission_type
   customers: ["NASA", "ZTM"],
   upcoming: true,
   success: true,
