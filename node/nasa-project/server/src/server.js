@@ -1,11 +1,13 @@
 const http = require("http");
 const app = require("./app");
+require('dotenv').config();
 
 const {connect} = require("./mongoConfig/MongoDb");
 
 const {
   launch,
   saveLaunches,
+  loadLaunchesData
 } = require("./models/launches.model");
 
 const {
@@ -35,6 +37,10 @@ async function startServer() {
     server.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
+
+    //Spacex data:
+    await loadLaunchesData();
+    console.log("spacex data connected");
 
   } catch (error) {
     console.error("Unable to start server:", error);

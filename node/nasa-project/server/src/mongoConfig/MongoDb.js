@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-const MONGODB_URI =
-  "mongodb+srv://ketandutt_db_user:b4CGMFQtvOILldlB@cluster0.6ktl8zl.mongodb.net";
+const MONGODB_URI = process.env.MONGODB_DB_URI;
 
 if (!MONGODB_URI) {
   throw new Error("Please define MONGODB_URI");
@@ -36,7 +36,7 @@ async function connect() {
 
   cached.conn = await cached.promise;
 
-  console.log("Mongo DB Connected");
+  // console.log("Mongo DB Connected");
 
   isConnected = true;
 

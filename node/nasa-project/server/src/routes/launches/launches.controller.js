@@ -1,16 +1,18 @@
 // const {launchesService} = require('../../models/launches.model');
-const {
-  Launches,
+const {  
   getAllLaunches,
   addNewLaunch,
   existLaunchWithId,
   abortLaunchById,
 } = require("../../models/launches.model");
 
-async function httpGetAllLaunches(req, res) {
-  try {
-    const launches = await getAllLaunches();
+const{getPagination} = require("../../mongoConfig/Query")
 
+async function httpGetAllLaunches(req, res) {
+  
+  try {
+    const {limit, skip} = getPagination(req.query)
+    const launches = await getAllLaunches(limit, skip);    
     return res.status(200).json(launches);
   } catch (error) {
     console.error("GET /launches failed:", error);
