@@ -44,18 +44,42 @@ async function httpAddNewLaunch(req, res) {
 }
 
 async function httpAbortLaunch(req, res) {
-  const launchId = Number(req.params.id);
-  const existLaunch = await existLaunchWithId(launchId)
-  if (!existLaunch) {
-    return res.status(404).json({ error: "Launch not found" });
-  }
-  const aborted = abortLaunchById(launchId);
+  try {
+    const launchId = Number(req.params.id);
 
-  if (!aborted) {
-    return res.status(400).json({ error: "Launch not aborted" });
-  }
+    if (!Number.isInteger(launchId)) {
+      return res.status(400).json({
+        error: "Invalid launch ID",
+      });
+    }
 
-  return res.status(200).json({ ok: true });
+    const existingLaunch = await existLaunchWithId(launchId);
+
+    if (!existingLaunch) {
+      return res.status(404).json({
+        error: "Launch not found",
+      });
+    }
+
+    const aborted = await abortLaunchById(launchId);
+
+    if (!aborted) {
+      return res.status(400).json({
+        error: "Launch not aborted",
+      });
+    }
+
+    return res.status(200).json({
+      ok: true,
+      launch: aborted,
+    });
+  } catch (error) {
+    console.error("DELETE /launches failed:", error);
+
+    return res.status(500).json({
+      error: "Failed to abort launch",
+    });
+  }
 }
 
 module.exports = {

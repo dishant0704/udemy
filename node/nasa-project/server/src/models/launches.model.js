@@ -153,9 +153,7 @@ async function loadLaunchesData() {
 }
 
 async function findLaunch(filter){
-   return await LaunchesDataBase.findOne({
-    filter
-   })
+   return await LaunchesDataBase.findOne(filter).lean();
 }
 
 async function existLaunchWithId(id) {

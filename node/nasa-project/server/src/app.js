@@ -10,7 +10,7 @@ const launchesRoute = require('./routes/launches/launches.route');
 
 //middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:8000',
 }));
 app.use(morgan('combined'));
 app.use(express.json());
