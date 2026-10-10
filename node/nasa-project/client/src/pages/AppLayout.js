@@ -63,7 +63,9 @@ const AppLayout = props => {
   return <div className={classes.content}>
     <Header onNav={animateFrame} />
     <Centered className={classes.centered}>
-      <Frame animate 
+      <Frame 
+        animate
+        hover 
         show={frameVisible} 
         corners={4} 
         style={{visibility: frameVisible ? "visible" : "hidden"}}>
