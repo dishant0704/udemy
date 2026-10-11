@@ -3,13 +3,13 @@ name: NASA Project CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'node/nasa-project/**'
       - '.github/workflows/node.yml'
 
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - 'node/nasa-project/**'
       - '.github/workflows/node.yml'
