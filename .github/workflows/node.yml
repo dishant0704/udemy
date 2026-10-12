@@ -22,9 +22,10 @@ jobs:
 
     env:
       CI: true
-      MONGO_URL: mongodb://localhost/nasa
+      MONGODB_URI: mongodb://127.0.0.1:27017/nasa
 
     strategy:
+      fail-fast: false
       matrix:
         node-version: [22.x, 24.x]
         mongodb-version: ['8.0']
@@ -42,7 +43,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Use MongoDB from GitHub Actions
+      - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.12.1
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
