@@ -129,7 +129,7 @@ async function populateLaunches (){
       target: launchDoc["mission_type"],
       customers: [launchDoc["mission_name"]],
       upcoming: false, //flase
-      success: success, //
+      success: success, // ture / false
     };
     
     await saveLaunches(launch)
