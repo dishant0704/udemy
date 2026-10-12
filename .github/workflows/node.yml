@@ -53,6 +53,13 @@ jobs:
 
       - name: Build client
         run: npm run build --prefix client
-
+      - name: Check MongoDB environment variable
+        run: |
+          if [ -z "$MONGODB_URI" ]; then
+            echo "MONGODB_URI is missing"
+            exit 1
+          else
+            echo "MONGODB_URI is configured"
+          fi
       - name: Run tests
         run: npm test
