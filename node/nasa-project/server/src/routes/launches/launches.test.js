@@ -1,11 +1,13 @@
 const request = require("supertest");
 const app = require("../../app");
 const { connect, disconnect } = require("../../mongoConfig/MongoDb");
+const {loadLaunchesData} = require("../../models/launches.model")
 
 describe("Launch API Test/", () => {
   // Connect MongoDB
   beforeAll(async () => {
     await connect();
+    await loadLaunchesData();
   });
 
   // Disconnect MongoDB
