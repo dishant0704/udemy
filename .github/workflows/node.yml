@@ -22,7 +22,7 @@ jobs:
 
     env:
       CI: true
-      MONGODB_URI: mongodb://127.0.0.1:27017/nasa
+      MONGODB_DB_URI: mongodb://127.0.0.1:27017/nasa
 
     strategy:
       fail-fast: false
@@ -55,11 +55,11 @@ jobs:
         run: npm run build --prefix client
       - name: Check MongoDB environment variable
         run: |
-          if [ -z "$MONGODB_URI" ]; then
-            echo "MONGODB_URI is missing"
+          if [ -z "$MONGODB_DB_URI" ]; then
+            echo "MONGODB_DB_URI is missing"
             exit 1
           else
-            echo "MONGODB_URI is configured"
+            echo "MONGODB_DB_URI is configured"
           fi
       - name: Run tests
         run: npm test
