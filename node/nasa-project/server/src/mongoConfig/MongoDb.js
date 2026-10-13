@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
+require("dotenv").config({
+  path: require("path").resolve(__dirname, "../../.env"),
+});
 
 const MONGODB_URI = process.env.MONGODB_DB_URI;
 
