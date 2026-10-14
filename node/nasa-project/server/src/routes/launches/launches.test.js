@@ -8,12 +8,12 @@ describe("Launch API Test/", () => {
   beforeAll(async () => {
     await connect();
     await loadLaunchesData();
-  });
+  },30000);
 
   // Disconnect MongoDB
   afterAll(async () => {
     await disconnect();
-  });
+  },30000);
 
   describe("Test GET Launches API", () => {
     test("It should respond with 200 success", async () => {
