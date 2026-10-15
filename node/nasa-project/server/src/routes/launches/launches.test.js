@@ -1,12 +1,14 @@
 const request = require("supertest");
 const app = require("../../app");
 const { connect, disconnect } = require("../../mongoConfig/MongoDb");
-const {loadLaunchesData} = require("../../models/launches.model")
+const {loadLaunchesData} = require("../../models/launches.model");
+const { loadPlanetsData } = require("../../models/planets.model");
 
 describe("Launch API Test/", () => {
   // Connect MongoDB
   beforeAll(async () => {
     await connect();
+    await loadPlanetsData();
     await loadLaunchesData();
   },30000);
 
